@@ -4,7 +4,7 @@ import BuildControl from "./BuildControl/BuildControl";
 
 const BuildControls = (props) => {
 
-    const {ingredients, changeIngredientsHandler,totalPrice,disabled} = props;
+    const {ingredients,changeIngredientsHandler,totalPrice,disabled, updatePurchaseState, purchasable} = props;
     const ingredientsArray = Object.entries(ingredients);
     const ingredientsControls = ingredientsArray.map(item => (
             <BuildControl key={item[0] + item[1]} disabled={disabled[item[0]]} label={item[0]} actualValue={item[1]}
@@ -15,8 +15,9 @@ const BuildControls = (props) => {
 
     return (
         <div className={classes.BuildControls}>
-            <p>{totalPrice}</p>
+            <p>Current price: <strong>{totalPrice.toFixed(2)}</strong></p>
             {ingredientsControls}
+            <button disabled={!purchasable} className={classes.OrderButton}>ORDER NOW</button>
         </div>
     )
 };
