@@ -63,16 +63,16 @@ class BurgerBuilder extends Component {
         });
     };
 
-    modalInHandler = () => {
-        this.setState({checkIn:true})
-    };
-
     checkInHandler = () => {
         this.setState({checkIn:true})
     };
 
     checkInCancelHandler = () => {
         this.setState({checkIn:false})
+    };
+
+    checkOutHandler = () => {
+        console.log('zamowione')
     };
 
     render() {
@@ -84,7 +84,10 @@ class BurgerBuilder extends Component {
         return (
             <Aux>
                 <Modal show={this.state.checkIn} modalClosed={this.checkInCancelHandler}>
-                    <OrderSummary ingredients={this.state.ingredients}/>
+                    <OrderSummary
+                        ingredients={this.state.ingredients}
+                        totalPrice={this.state.totalPrice} modalClosed={this.checkInCancelHandler}
+                        checkOutHandler={this.checkOutHandler} />
                 </Modal>
                 <Burger ingredients={this.state.ingredients}/>
                 <BuildControls ingredients={this.state.ingredients}
