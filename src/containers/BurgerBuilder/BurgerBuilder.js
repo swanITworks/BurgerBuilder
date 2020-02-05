@@ -22,6 +22,7 @@ class BurgerBuilder extends Component {
         },
         totalPrice: 4,
         purchasable: false,
+        checkIn: false,
     };
 
     updatePurchaseState = () => {
@@ -62,6 +63,18 @@ class BurgerBuilder extends Component {
         });
     };
 
+    modalInHandler = () => {
+        this.setState({checkIn:true})
+    };
+
+    checkInHandler = () => {
+        this.setState({checkIn:true})
+    };
+
+    checkInCancelHandler = () => {
+        this.setState({checkIn:false})
+    };
+
     render() {
 
         const disabledInfo = {...this.state.ingredients};
@@ -70,7 +83,7 @@ class BurgerBuilder extends Component {
         }
         return (
             <Aux>
-                <Modal>
+                <Modal show={this.state.checkIn} modalClosed={this.checkInCancelHandler}>
                     <OrderSummary ingredients={this.state.ingredients}/>
                 </Modal>
                 <Burger ingredients={this.state.ingredients}/>
@@ -79,7 +92,8 @@ class BurgerBuilder extends Component {
                                changeIngredientsHandler={this.changeIngredientsHandler}
                                disabled={disabledInfo}
                                purchasable={this.state.purchasable}
-                               updatePurchaseState={this.updatePurchaseState}/>
+                               updatePurchaseState={this.updatePurchaseState}
+                               checkInHandler={this.checkInHandler}/>
             </Aux>
         );
     }
