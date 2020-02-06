@@ -19,5 +19,9 @@
 }
 
 .Open {
-    transform: tr ;
+    transform: translateX(0);
+}
+
+.Close {
+    transform: translateX(-100%);
 }
