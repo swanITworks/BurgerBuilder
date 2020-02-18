@@ -81,31 +81,47 @@ class BurgerBuilder extends Component {
     };
 
     checkOutHandler = () => {
-        // console.log('zamowione')
-        this.setState({loading: true});
-        const order = {
-            ingredients: this.state.ingredients,
-            price: this.state.totalPrice,
-            customer: {
-                name: 'Michal Swan',
-                address: {
-                    street: 'Szybownikow 4',
-                    zipCode: '64-920',
-                    country: 'Poland',
-                },
-                email: 'rysiek@gruby.pl',
-            },
-            deliveryMethod: 'fastest'
+
+        const queryParams = [];
+
+        for ( let i in this.state.ingredients) {
+            queryParams.push(encodeURIComponent(i) + '=' + encodeURIComponent(this.state.ingredients[i]));
         };
-        axios.post('/orders.json', order)
-            .then(response => {
-                console.log(response);
-                this.setState({loading: false, checkIn: false});
-            })
-            .catch(errors => {
-                console.log(errors);
-                this.setState({loading: false, checkIn: false});
-            })
+
+        const queryString = queryParams.join('&');
+
+        this.props.history.push({
+            pathname: '/checkout/',
+            search: '?' + queryString,
+        });
+
+        // console.log('zamowione')
+        // this.setState({loading: true});
+        // const order = {
+        //     ingredients: this.state.ingredients,
+        //     price: this.state.totalPrice,
+        //     customer: {
+        //         name: 'Michal Swan',
+        //         address: {
+        //             street: 'Szybownikow 4',
+        //             zipCode: '64-920',
+        //             country: 'Poland',
+        //         },
+        //         email: 'rysiek@gruby.pl',
+        //     },
+        //     deliveryMethod: 'fastest'
+        // };
+        //
+        // axios.post('/orders.json', order)
+        //     .then(response => {
+        //         console.log(response);
+        //         this.setState({loading: false, checkIn: false});
+        //     })
+        //     .catch(errors => {
+        //         console.log(errors);
+        //         this.setState({loading: false, checkIn: false});
+        //     })
+
     };
 
     render() {
