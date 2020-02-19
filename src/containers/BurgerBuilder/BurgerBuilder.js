@@ -6,7 +6,7 @@ import Modal from "../../components/UI/Modal/Modal";
 import OrderSummary from "../../components/Burger/OrderSummary/OrderSummary";
 import Spinner from "../../components/UI/Spinner/Spinner";
 import withErrorHandler from "../../hoc/withErrorHandler/withErrorHandler";
-import axios from '../../axios-orders'
+import axios from '../../axios-orders';
 
 const PRICE_LIST = {
     salad: 0.5,
@@ -87,6 +87,7 @@ class BurgerBuilder extends Component {
         for ( let i in this.state.ingredients) {
             queryParams.push(encodeURIComponent(i) + '=' + encodeURIComponent(this.state.ingredients[i]));
         };
+        queryParams.push('price=' + encodeURIComponent(this.state.totalPrice));
 
         const queryString = queryParams.join('&');
 
