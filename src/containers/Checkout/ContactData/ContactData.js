@@ -23,13 +23,13 @@ class ContactData extends Component {
             ingredients: this.props.ingredients,
 
             customer: {
-                name: 'Michal Swan',
+                name: this.state.userName,
                 address: {
                     street: 'Szybownikow 4',
                     zipCode: '64-920',
                     country: 'Poland',
                 },
-                email: 'rysiek@gruby.pl',
+                email: this.state.email,
             },
             deliveryMethod: 'fastest',
             price: this.props.price,
@@ -47,10 +47,16 @@ class ContactData extends Component {
             })
     };
 
+    handlerInputChange = (event) => {
+        this.setState({
+            [event.target.name]:event.target.value,
+        })
+    };
+
     render() {
         let form = (
             <form>
-                <input className={classes.Input} type='text' name='name' placeholder='Your name'/>
+                <input className={classes.Input} type='text' name='userName' placeholder='Your name' onChange={this.handlerInputChange}/>
                 <input className={classes.Input} type='email' name='email' placeholder='Your email'/>
                 <input className={classes.Input} type='text' name='street' placeholder='Street'/>
                 <input className={classes.Input} type='text' name='postalCode' placeholder='Postal Code'/>
