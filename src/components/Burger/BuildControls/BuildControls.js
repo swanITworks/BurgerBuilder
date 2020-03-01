@@ -2,17 +2,25 @@ import React from "react";
 import classes from './BuildControls.module.css';
 import BuildControl from "./BuildControl/BuildControl";
 
+const controls = [
+    { label:'Salad', type:'salad' },
+    { label:'Bacon', type:'bacon' },
+    { label:'Cheese', type:'cheese' },
+    { label:'Meat', type:'meat' },
+];
+
+
 const BuildControls = (props) => {
 
-    const {ingredients,changeIngredientsHandler,totalPrice,disabled, updatePurchaseState, purchasable, checkInHandler} = props;
+    const {ingredients,totalPrice,disabled, purchasable, checkInHandler, ingredientAdded, ingredientRemoved} = props;
     const ingredientsArray = Object.entries(ingredients);
     const ingredientsControls = ingredientsArray.map(item => (
             <BuildControl key={item[0] + item[1]} disabled={disabled[item[0]]} label={item[0]} actualValue={item[1]}
-                          changeHandlerPlus={() => changeIngredientsHandler(item[0], 'add')}
-                          changeHandlerMinus={() => changeIngredientsHandler(item[0], 'subs')}/>
+                          changeHandlerPlus={() => ingredientAdded(item[0])}
+                          changeHandlerMinus={() => ingredientRemoved(item[0])}/>
         )
-    );
 
+    );
     return (
         <div className={classes.BuildControls}>
             <p>Current price: <strong>£ {totalPrice.toFixed(2)}</strong></p>

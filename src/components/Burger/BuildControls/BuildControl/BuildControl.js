@@ -10,7 +10,6 @@ const BuildControl = (props) => {
                 onClick={changeHandlerMinus}
                 className={classes.Less}
                 disabled={disabled}>Less</button>
-            <span>{actualValue}</span>
             <button
                 onClick={changeHandlerPlus}
                 className={classes.More}>More</button>
