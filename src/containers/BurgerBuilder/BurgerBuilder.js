@@ -11,16 +11,8 @@ import withErrorHandler from "../../hoc/withErrorHandler/withErrorHandler";
 import axios from '../../axios-orders';
 import * as actionTypes from '../../store/actions';
 
-const PRICE_LIST = {
-    salad: 0.5,
-    bacon: 0.8,
-    cheese: 0.7,
-    meat: 1,
-};
-
 class BurgerBuilder extends Component {
     state = {
-        totalPrice: 4,
         purchasable: false,
         checkIn: false,
         loading: false,
@@ -40,22 +32,14 @@ class BurgerBuilder extends Component {
         const ingredients = {
             ...this.props.ings
         };
-        const sum = Object.keys(ingredients)
+        const sum = (
+            Object.keys(ingredients)
             .map(igKey => ingredients[igKey])
             .reduce((sum, element,) => {
                 return sum + element
-            }, 0);
-        this.setState({purchasable: sum > 0})
-    };
-
-    changeIngredientsHandler = () => {
-        let newState = [...Object.entries(this.props.ings)];
-
-        this.setState({ingredients: newState}, () => {
-            const newTotalPrice = [...Object.entries(this.props.ings)]
-                .reduce((acc, curr, index) => acc + (PRICE_LIST[curr[0]] * curr[1]), 4);
-            this.setState({totalPrice: newTotalPrice}, this.updatePurchaseState);
-        });
+            }, 0)
+        );
+        return sum > 0
     };
 
     checkInHandler = () => {
@@ -67,21 +51,7 @@ class BurgerBuilder extends Component {
     };
 
     checkOutHandler = () => {
-
-        const queryParams = [];
-
-        for (let i in this.props.ings) {
-            queryParams.push(encodeURIComponent(i) + '=' + encodeURIComponent(this.props.ings[i]));
-        }
-        ;
-        queryParams.push('price=' + encodeURIComponent(this.state.totalPrice));
-
-        const queryString = queryParams.join('&');
-
-        this.props.history.push({
-            pathname: '/checkout/',
-            search: '?' + queryString,
-        });
+        this.props.history.push('/checkout');
     };
 
     render() {
@@ -98,12 +68,12 @@ class BurgerBuilder extends Component {
                 <Aux>
                     <Burger ingredients={this.props.ings}/>
                     <BuildControls ingredients={this.props.ings}
-                                   totalPrice={this.state.totalPrice}
+                                   totalPrice={this.props.totPrice}
                                    ingredientAdded={this.props.onIngredientAdded}
                                    ingredientRemoved={this.props.onIngredientRemoved}
                                    changeIngredientsHandler={this.changeIngredientsHandler}
                                    disabled={disabledInfo}
-                                   purchasable={this.state.purchasable}
+                                   purchasable={this.updatePurchaseState()}
                                    updatePurchaseState={this.updatePurchaseState}
                                    checkInHandler={this.checkInHandler}/>
                 </Aux>
@@ -111,7 +81,7 @@ class BurgerBuilder extends Component {
             orderSummary = (
                 <OrderSummary
                     ingredients={this.props.ings}
-                    totalPrice={this.state.totalPrice} modalClosed={this.checkInCancelHandler}
+                    totalPrice={this.props.totPrice} modalClosed={this.checkInCancelHandler}
                     checkOutHandler={this.checkOutHandler}/>
             );
         }
@@ -119,8 +89,7 @@ class BurgerBuilder extends Component {
 
         if (this.state.loading) {
             orderSummary = <Spinner/>
-        }
-        ;
+        };
 
         return (
             <Aux>
@@ -136,6 +105,7 @@ class BurgerBuilder extends Component {
 const mapStateToProps = state => {
     return {
         ings: state.ingredients,
+        totPrice: state.totalPrice,
     };
 };
 
