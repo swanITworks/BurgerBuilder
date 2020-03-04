@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="6e43ab72-2205-413c-8cc2-71bfbc188e14" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/src/store/actions/actionTypes.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/store/actions/burgerBuilder.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/store/actions/index.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/store/actions/order.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/store/reducers/order.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/containers/BurgerBuilder/BurgerBuilder.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/containers/BurgerBuilder/BurgerBuilder.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/store/actions.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/store/reducer.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/store/reducers/burgerBuilder.js" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="CSS File" />
+        <option value="JavaScript File" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ProjectId" id="1XCbYHzeTvLbuzPGngwFwlqlfjI" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showExcludedFiles" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="list.type.of.created.stylesheet" value="CSS" />
+    <property name="node.js.detected.package.eslint" value="true" />
+    <property name="node.js.detected.package.standard" value="true" />
+    <property name="node.js.path.for.package.eslint" value="project" />
+    <property name="node.js.path.for.package.standard" value="project" />
+    <property name="node.js.selected.package.eslint" value="(autodetect)" />
+    <property name="node.js.selected.package.standard" value="" />
+    <property name="nodejs_package_manager_path" value="npm" />
+    <property name="run.code.analysis.last.selected.profile" value="pProject Default" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/store/reducers" />
+      <recent name="$PROJECT_DIR$/src/store/actions" />
+      <recent name="$PROJECT_DIR$/src/components" />
+      <recent name="$PROJECT_DIR$/src/containers" />
+      <recent name="$PROJECT_DIR$/src/containers/Order" />
+    </key>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="6e43ab72-2205-413c-8cc2-71bfbc188e14" name="Default Changelist" comment="" />
+      <created>1580553069789</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1580553069789</updated>
+      <workItem from="1580553072448" duration="5825000" />
+      <workItem from="1580639589109" duration="11660000" />
+      <workItem from="1580712631932" duration="17079000" />
+      <workItem from="1580798467464" duration="13011000" />
+      <workItem from="1580841856138" duration="6226000" />
+      <workItem from="1580886254890" duration="13740000" />
+      <workItem from="1580973227358" duration="5808000" />
+      <workItem from="1581000969392" duration="4391000" />
+      <workItem from="1581355024333" duration="1997000" />
+      <workItem from="1581503926730" duration="9000" />
+      <workItem from="1581503954699" duration="12722000" />
+      <workItem from="1581580627613" duration="840000" />
+      <workItem from="1581589171928" duration="4507000" />
+      <workItem from="1581931139904" duration="15000" />
+      <workItem from="1581932166424" duration="32000" />
+      <workItem from="1581936769975" duration="506000" />
+      <workItem from="1581938178753" duration="46000" />
+      <workItem from="1581969030081" duration="4186000" />
+      <workItem from="1582008016061" duration="13665000" />
+      <workItem from="1582099528496" duration="9539000" />
+      <workItem from="1582130002198" duration="4201000" />
+      <workItem from="1582180682676" duration="5961000" />
+      <workItem from="1582618330135" duration="5025000" />
+      <workItem from="1582745523985" duration="1549000" />
+      <workItem from="1582788783179" duration="13880000" />
+      <workItem from="1583074809606" duration="8739000" />
+      <workItem from="1583133231456" duration="9145000" />
+      <workItem from="1583254062585" duration="4845000" />
+      <workItem from="1583304875078" duration="3771000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="320" y="115" key="#ESLint" timestamp="1580640376148">
+      <screen x="0" y="0" width="1440" height="900" />
+    </state>
+    <state x="320" y="115" key="#ESLint/0.0.1440.900@0.0.1440.900" timestamp="1580640376148" />
+    <state x="184" y="112" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1583146410118">
+      <screen x="0" y="0" width="1440" height="900" />
+    </state>
+    <state x="184" y="112" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1440.900@0.0.1440.900" timestamp="1583146410118" />
+    <state x="458" y="187" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1581511023241">
+      <screen x="0" y="23" width="1440" height="821" />
+    </state>
+    <state x="458" y="187" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.23.1440.821@0.23.1440.821" timestamp="1581511023240" />
+    <state x="465" y="296" key="ANALYSIS_DLG_com.intellij.analysis.BaseAnalysisAction$1" timestamp="1581510980481">
+      <screen x="0" y="23" width="1440" height="821" />
+    </state>
+    <state x="465" y="296" key="ANALYSIS_DLG_com.intellij.analysis.BaseAnalysisAction$1/0.23.1440.821@0.23.1440.821" timestamp="1581510980481" />
+    <state x="385" y="210" key="run.anything.popup" timestamp="1581969562991">
+      <screen x="0" y="0" width="1440" height="900" />
+    </state>
+    <state x="385" y="210" key="run.anything.popup/0.0.1440.900@0.0.1440.900" timestamp="1581969562991" />
+    <state x="385" y="196" width="670" height="676" key="search.everywhere.popup" timestamp="1583083849805">
+      <screen x="0" y="0" width="1440" height="900" />
+    </state>
+    <state x="385" y="196" width="670" height="676" key="search.everywhere.popup/0.0.1440.900@0.0.1440.900" timestamp="1583083849805" />
+    <state x="385" y="202" width="670" height="617" key="search.everywhere.popup/0.23.1440.821@0.23.1440.821" timestamp="1581512945720" />
+  </component>
+</project>
