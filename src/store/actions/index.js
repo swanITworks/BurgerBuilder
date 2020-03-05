@@ -5,4 +5,7 @@ export {
     setIngredients,
     fetchIngredientsFailed,
 } from './burgerBuilder';
-export {} from './order';
+export {
+    purchaseBurger,
+    purchaseInit
+} from './order';
