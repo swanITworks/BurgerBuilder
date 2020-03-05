@@ -19,7 +19,7 @@ const order = (props) => {
     }
     return (
         <div className={classes.Order}>
-            <p>name: {orderData.customer.name}</p>
+            <p>name: {orderData.orderData.name}</p>
             <p><span>Igredients: </span>{printIngredients.map(item=>item)}</p>
             <p>Price: <strong>USD {orderData.price}</strong></p>
         </div>
