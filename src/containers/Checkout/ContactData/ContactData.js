@@ -9,6 +9,8 @@ import Input from '../../../components/UI/Input/Input';
 import withErrorHandler from "../../../hoc/withErrorHandler/withErrorHandler";
 import * as actions from '../../../store/actions/index'
 
+
+
 class ContactData extends Component {
     state = {
         orderForm: {
@@ -177,7 +179,7 @@ class ContactData extends Component {
                             invalid={!formElement.config.valid}
                             shouldValidate={formElement.config.validation}
                             touched={formElement.config.touched}
-                            change={(event) => this.inputChangeHandler(event, formElement.id)}
+                            changed={(event) => this.inputChangeHandler(event, formElement.id)}
                         />
                     )
                 )

@@ -2,7 +2,7 @@ import React from "react";
 import classes from "./Input.module.css"
 
 const input = (props) => {
-    const { label, value, elementType, change } = props;
+    const { label, value, elementType, changed } = props;
     let inputElement = null;
     const inputClasses = [classes.InputElement];
 
@@ -13,14 +13,14 @@ const input = (props) => {
     switch (elementType) {
         case ('input'):
             inputElement = <input
-                onChange={change}
+                onChange={changed}
                 className={inputClasses.join(' ')}
                 {...props.elementConfig}
                 value={value}/>;
             break;
         case ('textarea'):
             inputElement = <textarea
-                onChange={change}
+                onChange={changed}
                 className={inputClasses.join(' ')}
                 {...props.elementConfig}
                 value={value}/>;
@@ -28,7 +28,7 @@ const input = (props) => {
         case ('select'):
             inputElement = (
                 <select
-                    onChange={change}
+                    onChange={changed}
                     className={inputClasses.join(' ')}
                     value={value}>
                     {props.elementConfig.options.map( option => (
