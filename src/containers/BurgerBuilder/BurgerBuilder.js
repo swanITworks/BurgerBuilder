@@ -1,5 +1,5 @@
-import React, { Component } from "react";
-import { connect } from 'react-redux';
+import React, {Component} from "react";
+import {connect} from 'react-redux';
 
 import Aux from "../../hoc/Aux/Aux";
 import Burger from "../../components/Burger/Burger";
@@ -27,16 +27,21 @@ class BurgerBuilder extends Component {
         };
         const sum = (
             Object.keys(ingredients)
-            .map(igKey => ingredients[igKey])
-            .reduce((sum, element,) => {
-                return sum + element
-            }, 0)
+                .map(igKey => ingredients[igKey])
+                .reduce((sum, element,) => {
+                    return sum + element
+                }, 0)
         );
         return sum > 0
     };
 
     checkInHandler = () => {
-        this.setState({checkIn: true})
+        if (this.props.isAuth) {
+            this.setState({checkIn: true})
+        } else {
+            this.props.onSetAuthRedirectPath('/checkout');
+            this.props.history.push('/auth');
+        }
     };
 
     checkInCancelHandler = () => {
@@ -45,7 +50,7 @@ class BurgerBuilder extends Component {
     };
 
     checkOutHandler = () => {
-        this.props.history.push('/checkout');
+            this.props.history.push('/checkout');
     };
 
     render() {
@@ -69,6 +74,7 @@ class BurgerBuilder extends Component {
                                    disabled={disabledInfo}
                                    purchasable={this.updatePurchaseState()}
                                    updatePurchaseState={this.updatePurchaseState}
+                                   isAuth={this.props.isAuth}
                                    checkInHandler={this.checkInHandler}/>
                 </Aux>
             );
@@ -79,8 +85,6 @@ class BurgerBuilder extends Component {
                     checkOutHandler={this.checkOutHandler}/>
             );
         }
-        ;
-
 
         return (
             <Aux>
@@ -98,6 +102,7 @@ const mapStateToProps = state => {
         ings: state.burgerBuilder.ingredients,
         totPrice: state.burgerBuilder.totalPrice,
         error: state.burgerBuilder.fetchIngredientsError,
+        isAuth: state.auth.token !== null
     };
 };
 
@@ -106,7 +111,8 @@ const mapDispatchToProps = dispatch => {
         onIngredientAdded: (ingName) => dispatch(actions.addIngredient(ingName)),
         onIngredientRemoved: (ingName) => dispatch(actions.removeIngredient(ingName)),
         onInitIngredients: () => dispatch(actions.initIngredients()),
-        onInitPurchase: () => dispatch(actions.purchaseInit())
+        onInitPurchase: () => dispatch(actions.purchaseInit()),
+        onSetAuthRedirectPath: ( path ) => dispatch(actions.setAuthRedirectPath( path )),
     }
 };
 
