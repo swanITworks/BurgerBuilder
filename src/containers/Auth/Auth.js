@@ -1,12 +1,13 @@
-import React, { Component } from 'react';
-import { connect } from 'react-redux';
-import { Redirect } from 'react-router-dom';
+import React, {Component} from 'react';
+import {connect} from 'react-redux';
+import {Redirect} from 'react-router-dom';
 
 import Input from '../../components/UI/Input/Input';
 import Button from '../../components/UI/Button/Button';
 import Spinner from "../../components/UI/Spinner/Spinner";
 import classes from './Auth.module.css';
 import * as actions from '../../store/actions/index';
+import {updateObject} from "../../shared/utility";
 
 class Auth extends Component {
 
@@ -46,7 +47,7 @@ class Auth extends Component {
     };
 
     componentDidMount() {
-        if (!this.props.buildingBurger && this.props.authRedirectPath !== '/'){
+        if (!this.props.buildingBurger && this.props.authRedirectPath !== '/') {
             this.props.onSetAuthRedirectPath();
         }
     }
@@ -78,23 +79,20 @@ class Auth extends Component {
     };
 
 
-
     inputChangeHandler(event, controlName) {
-        const updatedControls = {
-            ...this.state.controls,
-            [controlName]: {
-                ...this.state.controls[controlName],
+        const updatedControls = updateObject(this.state.controls, {
+            [controlName]: updateObject(this.state.controls[controlName], {
                 value: event.target.value,
                 valid: this.checkValidityHandler(event.target.value, this.state.controls[controlName].validation),
                 touched: true,
-            }
-        };
-        this.setState({controls: updatedControls});
+            })
+        });
+        this.setState({ controls: updatedControls });
     };
 
-    submitHandler = ( event ) => {
+    submitHandler = (event) => {
         event.preventDefault();
-        this.props.onAuth( this.state.controls.email.value, this.state.controls.password.value, this.state.isSignup );
+        this.props.onAuth(this.state.controls.email.value, this.state.controls.password.value, this.state.isSignup);
     };
 
     switchAuthModeHandler = () => {
@@ -152,7 +150,7 @@ class Auth extends Component {
         return (
             <div className={classes.Auth}>
                 {authRedirect}
-                {this.state.isSignup ? <p>SIGNUP</p>:<p>SIGNIN</p>}
+                {this.state.isSignup ? <p>SIGNUP</p> : <p>SIGNIN</p>}
                 <form onSubmit={this.submitHandler}>
                     {form}
                     <Button btnType='Success'>SUBMIT</Button>
@@ -179,7 +177,7 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
     return {
-        onAuth: ( email, password, isSignup ) => dispatch(actions.auth( email, password, isSignup )),
+        onAuth: (email, password, isSignup) => dispatch(actions.auth(email, password, isSignup)),
         onSetAuthRedirectPath: () => dispatch(actions.setAuthRedirectPath('/'))
     };
 };
